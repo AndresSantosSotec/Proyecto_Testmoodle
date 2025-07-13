@@ -19,6 +19,10 @@
     </source>
     <php>
         <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:9LpdNtg5mg4gz8UcQXfh5CKH+D1eFkaSJRaUY0g+cNw="/>
+        <env name="MOODLE_BASE_URL" value="http://localhost"/>
+        <env name="MOODLE_TOKEN" value="test"/>
+        <env name="MOODLE_FORMAT" value="json"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_STORE" value="array"/>
