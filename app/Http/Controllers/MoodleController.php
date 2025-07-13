@@ -30,4 +30,24 @@ class MoodleController extends Controller
         $data = $this->moodle->call('core_enrol_get_users_courses', ['userid' => $userId]);
         return view('moodle.cursos', ['cursos' => $data]);
     }
+
+    /** Mostrar las categorías de cursos */
+    public function categorias()
+    {
+        $data = $this->moodle->call('core_course_get_categories', []);
+        $categorias = $data['categories'] ?? $data;
+        return view('moodle.categorias', compact('categorias'));
+    }
+
+    /** Buscar usuarios por email o nombre */
+    public function buscarUsuarios(Request $request)
+    {
+        $query = $request->input('query', '');
+        $data = $this->moodle->call('core_user_get_users', [
+            'criteria[0][key]' => 'search',
+            'criteria[0][value]' => $query,
+        ]);
+        $users = $data['users'] ?? [];
+        return view('moodle.usuarios', compact('users', 'query'));
+    }
 }
