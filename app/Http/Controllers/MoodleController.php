@@ -23,6 +23,14 @@ class MoodleController extends Controller
         return view('moodle.cursos', compact('cursos'));
     }
 
+    /** Devolver cursos en formato JSON sin usar vistas */
+    public function cursosJson()
+    {
+        $data = $this->moodle->call('core_course_get_courses', []);
+        $cursos = $data['courses'] ?? $data;
+        return response()->json($cursos);
+    }
+
     /** Otro ejemplo: listado de cursos de un usuario */
     public function misCursos(Request $req)
     {
