@@ -22,6 +22,7 @@ class MoodleRoutesTest extends TestCase
     {
         foreach ([
             '/moodle/cursos',
+            '/api/moodle/cursos',
             '/moodle/mis-cursos',
             '/moodle/categorias',
             '/moodle/usuarios',
